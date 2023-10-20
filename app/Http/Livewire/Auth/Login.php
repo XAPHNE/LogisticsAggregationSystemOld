@@ -24,7 +24,7 @@ class Login extends Component
             return redirect()->intended('/dashboard');
         }
         $this->fill([
-            'email' => 'admin@lasm.com',
+            'email' => 'admin@last.com',
             'password' => 'admin123',
         ]);
     }
