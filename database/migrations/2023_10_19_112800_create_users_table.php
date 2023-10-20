@@ -38,13 +38,34 @@ class CreateUsersTable extends Migration {
         $now = Carbon::now();
 
         DB::table('users')->insert([
-            'first_name'=> 'Admin',
+            ['first_name'=> 'Admin',
             'last_name'=> 'User',
             'email'=> 'admin@last.com',
             'password' => Hash::make('admin123'),
             'role_id'=> 1,
             'created_at'=> $now,
-            'updated_at'=> $now,
+            'updated_at'=> $now],
+            ['first_name'=> 'Employee',
+            'last_name'=> 'User',
+            'email'=> 'employee@last.com',
+            'password' => Hash::make('employee123'),
+            'role_id'=> 2,
+            'created_at'=> $now,
+            'updated_at'=> $now],
+            ['first_name'=> 'Driver',
+            'last_name'=> 'User',
+            'email'=> 'driver@last.com',
+            'password' => Hash::make('driver123'),
+            'role_id'=> 3,
+            'created_at'=> $now,
+            'updated_at'=> $now],
+            ['first_name'=> 'Customer',
+            'last_name'=> 'User',
+            'email'=> 'customer@last.com',
+            'password' => Hash::make('customer123'),
+            'role_id'=> 4,
+            'created_at'=> $now,
+            'updated_at'=> $now],
         ]);
     }
 
