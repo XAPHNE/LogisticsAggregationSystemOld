@@ -79,8 +79,8 @@
                 <span class="sidebar-text">User List</span>
               </a>
             </li>
-            <li class="nav-item {{ Request::segment(2) == 'role-add' || Request::segment(2) == 'role-edit' ? 'active' : '' }}">
-              <a href="{{route('role.add')}}" class="nav-link">
+            <li class="nav-item {{ Request::segment(2) == 'user-add' || Request::segment(2) == 'user-edit' ? 'active' : '' }}">
+              <a href="{{route('user.add')}}" class="nav-link">
                 <span class="sidebar-text">User Add/Edit</span>
               </a>
             </li>
