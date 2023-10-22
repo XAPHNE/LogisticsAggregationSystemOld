@@ -54,6 +54,7 @@ class Roles extends Component
             // Reset component state
             $this->reset(['roleId', 'roleToDelete', 'confirmingRoleDeletion']);
         }
+        $this->roleList = $this->getRoles();
     }
 
     public function sortBy($field)
