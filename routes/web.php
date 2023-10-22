@@ -27,6 +27,8 @@ use App\Http\Livewire\RoleAdd;
 use App\Http\Livewire\RoleEdit;
 use App\Http\Livewire\Roles;
 use App\Http\Livewire\UpgradeToPro;
+use App\Http\Livewire\UserAdd;
+use App\Http\Livewire\UserEdit;
 use App\Http\Livewire\Users;
 
 /*
@@ -57,6 +59,9 @@ Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
+    Route::get('/user-management/user-add', UserAdd::class)->name('user.add');
+    Route::post('/user-management/user-add', UserAdd::class)->name('user.add');
+    Route::get('/user-management/user-edit/{id}', UserEdit::class)->name('user.edit');
     Route::get('/user-management/user-list', Users::class)->name('users');
     Route::get('/role-management/role-add', RoleAdd::class)->name('role.add');
     Route::post('/role-management/role-add', RoleAdd::class)->name('role.add');
