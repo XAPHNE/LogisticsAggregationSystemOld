@@ -45,9 +45,6 @@
     <!-- Fontawesome -->
     <link type="text/css" href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
 
-    <!-- Sweet Alert -->
-    <link type="text/css" href="/vendor/sweetalert2/sweetalert2.min.css" rel="stylesheet">
-
     <!-- Notyf -->
     <link type="text/css" href="/vendor/notyf/notyf.min.css" rel="stylesheet">
 
@@ -80,9 +77,6 @@
 
     <!-- Datepicker -->
     <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.4/dist/js/datepicker.min.js"></script>
-
-    <!-- Sweet Alerts 2 -->
-    <script src="/assets/js/sweetalert2.all.min.js"></script>
 
     <!-- Moment JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
@@ -120,7 +114,6 @@
         <!-- End Google Tag Manager -->
     @endif
 
-<link type="text/css" href="{{url('/')}}vendor/sweetalert2/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -133,7 +126,9 @@
 
     {{ $slot }}
     @stack('scripts')
-    <script src="{{url('/')}}vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+    <!-- Include SweetAlert2 JavaScript -->
+    <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
 
 </body>
 
