@@ -6,6 +6,7 @@ use App\Http\Livewire\Components\Forms;
 use App\Http\Livewire\Components\Modals;
 use App\Http\Livewire\Components\Notifications;
 use App\Http\Livewire\Components\Typography;
+use App\Http\Livewire\CustomerLanding;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Err404;
 use App\Http\Livewire\Err500;
@@ -56,17 +57,24 @@ Route::get('/404', Err404::class)->name('404');
 Route::get('/500', Err500::class)->name('500');
 Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', Profile::class)->name('profile');
-    Route::get('/profile-example', ProfileExample::class)->name('profile-example');
-    Route::get('/user-management/user-add', UserAdd::class)->name('user.add');
-    Route::post('/user-management/user-add', UserAdd::class)->name('user.add');
-    Route::get('/user-management/user-edit/{id}', UserEdit::class)->name('user.edit');
-    Route::get('/user-management/user-list', Users::class)->name('users');
+Route::middleware(['auth', 'check_user_role:1'])->group(function () {
     Route::get('/role-management/role-add', RoleAdd::class)->name('role.add');
     Route::post('/role-management/role-add', RoleAdd::class)->name('role.add');
     Route::get('/role-management/role-edit/{id}', RoleEdit::class)->name('role.edit');
     Route::get('/role-management/role-list', Roles::class)->name('roles');
+    Route::get('/user-management/user-add', UserAdd::class)->name('user.add');
+    Route::post('/user-management/user-add', UserAdd::class)->name('user.add');
+    Route::get('/user-management/user-edit/{id}', UserEdit::class)->name('user.edit');
+    Route::get('/user-management/user-list', Users::class)->name('users');
+});
+
+Route::middleware(['auth', 'check_user_role:4'])->group(function () {
+    Route::get('/feed', CustomerLanding::class)->name('customer.landing');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', Profile::class)->name('profile');
+    Route::get('/profile-example', ProfileExample::class)->name('profile-example');
     Route::get('/login-example', LoginExample::class)->name('login-example');
     Route::get('/register-example', RegisterExample::class)->name('register-example');
     Route::get('/forgot-password-example', ForgotPasswordExample::class)->name('forgot-password-example');
