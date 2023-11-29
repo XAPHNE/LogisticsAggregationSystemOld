@@ -58,6 +58,8 @@
           <span class="sidebar-text">Profile</span>
         </a>
       </li>
+      @auth
+        @if(auth()->user()->role_id === 1)
       <li class="nav-item">
         <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
           data-bs-target="#submenu-laravel" aria-expanded="true">
@@ -116,6 +118,8 @@
           </ul>
         </div>
       </li>
+        @endif
+      @endauth
       <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
         <a href="/transactions" class="nav-link">
           <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
