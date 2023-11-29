@@ -56,17 +56,20 @@ Route::get('/404', Err404::class)->name('404');
 Route::get('/500', Err500::class)->name('500');
 Route::get('/upgrade-to-pro', UpgradeToPro::class)->name('upgrade-to-pro');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', Profile::class)->name('profile');
-    Route::get('/profile-example', ProfileExample::class)->name('profile-example');
-    Route::get('/user-management/user-add', UserAdd::class)->name('user.add');
-    Route::post('/user-management/user-add', UserAdd::class)->name('user.add');
-    Route::get('/user-management/user-edit/{id}', UserEdit::class)->name('user.edit');
-    Route::get('/user-management/user-list', Users::class)->name('users');
+Route::middleware(['auth', 'check_user_role:1'])->group(function () {
     Route::get('/role-management/role-add', RoleAdd::class)->name('role.add');
     Route::post('/role-management/role-add', RoleAdd::class)->name('role.add');
     Route::get('/role-management/role-edit/{id}', RoleEdit::class)->name('role.edit');
     Route::get('/role-management/role-list', Roles::class)->name('roles');
+    Route::get('/user-management/user-add', UserAdd::class)->name('user.add');
+    Route::post('/user-management/user-add', UserAdd::class)->name('user.add');
+    Route::get('/user-management/user-edit/{id}', UserEdit::class)->name('user.edit');
+    Route::get('/user-management/user-list', Users::class)->name('users');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', Profile::class)->name('profile');
+    Route::get('/profile-example', ProfileExample::class)->name('profile-example');
     Route::get('/login-example', LoginExample::class)->name('login-example');
     Route::get('/register-example', RegisterExample::class)->name('register-example');
     Route::get('/forgot-password-example', ForgotPasswordExample::class)->name('forgot-password-example');
