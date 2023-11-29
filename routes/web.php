@@ -6,6 +6,7 @@ use App\Http\Livewire\Components\Forms;
 use App\Http\Livewire\Components\Modals;
 use App\Http\Livewire\Components\Notifications;
 use App\Http\Livewire\Components\Typography;
+use App\Http\Livewire\CustomerLanding;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Err404;
 use App\Http\Livewire\Err500;
@@ -65,6 +66,10 @@ Route::middleware(['auth', 'check_user_role:1'])->group(function () {
     Route::post('/user-management/user-add', UserAdd::class)->name('user.add');
     Route::get('/user-management/user-edit/{id}', UserEdit::class)->name('user.edit');
     Route::get('/user-management/user-list', Users::class)->name('users');
+});
+
+Route::middleware(['auth', 'check_user_role:4'])->group(function () {
+    Route::get('/feed', CustomerLanding::class)->name('customer.landing');
 });
 
 Route::middleware('auth')->group(function () {
