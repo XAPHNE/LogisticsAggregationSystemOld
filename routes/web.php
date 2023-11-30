@@ -7,6 +7,7 @@ use App\Http\Livewire\Components\Modals;
 use App\Http\Livewire\Components\Notifications;
 use App\Http\Livewire\Components\Typography;
 use App\Http\Livewire\CustomerLanding;
+use App\Http\Livewire\DriverLanding;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Err404;
 use App\Http\Livewire\Err500;
@@ -71,6 +72,11 @@ Route::middleware(['auth', 'check_user_role:1'])->group(function () {
 Route::middleware(['auth', 'check_user_role:4'])->group(function () {
     Route::get('/feed', CustomerLanding::class)->name('customer.landing');
     Route::post('/feed', CustomerLanding::class)->name('customer.landing');
+});
+
+Route::middleware(['auth', 'check_user_role:3'])->group(function () {
+    Route::get('/driver-home', DriverLanding::class)->name('driver.landing');
+    Route::post('/driver-home', DriverLanding::class)->name('driver.landing');
 });
 
 Route::middleware('auth')->group(function () {
