@@ -131,7 +131,13 @@ class CustomerLanding extends Component
         $this->distance = $cityDistances[$this->sourceCity][$this->destinationCity] ?? 0;
 
         // Calculate the price based on distance and weight
+        if (($this->distance * 4) < 2000) {
+            $this->price = 2000;
+        }
+         
+        else {
         $this->price = ($this->distance * 4) + ($this->weight * 2);
+        }
     }
 
     public function submitForm() {
