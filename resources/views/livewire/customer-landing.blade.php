@@ -38,7 +38,7 @@
 
                 <div class="mb-3">
                     <label for="distance" class="form-label">Distance:</label>
-                    <input type="number" wire:model="distance" class="form-control">
+                    <span class="form-control">{{ $distance }}</span>
                 </div>
 
                 <div class="mb-3">
