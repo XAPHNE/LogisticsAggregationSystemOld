@@ -66,6 +66,21 @@ Route::middleware(['auth', 'check_user_role:1'])->group(function () {
     Route::post('/user-management/user-add', UserAdd::class)->name('user.add');
     Route::get('/user-management/user-edit/{id}', UserEdit::class)->name('user.edit');
     Route::get('/user-management/user-list', Users::class)->name('users');
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+
+    Route::get('/profile-example', ProfileExample::class)->name('profile-example');
+    Route::get('/login-example', LoginExample::class)->name('login-example');
+    Route::get('/register-example', RegisterExample::class)->name('register-example');
+    Route::get('/forgot-password-example', ForgotPasswordExample::class)->name('forgot-password-example');
+    Route::get('/reset-password-example', ResetPasswordExample::class)->name('reset-password-example');
+    Route::get('/transactions', Transactions::class)->name('transactions');
+    Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
+    Route::get('/lock', Lock::class)->name('lock');
+    Route::get('/buttons', Buttons::class)->name('buttons');
+    Route::get('/notifications', Notifications::class)->name('notifications');
+    Route::get('/forms', Forms::class)->name('forms');
+    Route::get('/modals', Modals::class)->name('modals');
+    Route::get('/typography', Typography::class)->name('typography');
 });
 
 Route::middleware(['auth', 'check_user_role:4'])->group(function () {
@@ -75,18 +90,4 @@ Route::middleware(['auth', 'check_user_role:4'])->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
-    Route::get('/profile-example', ProfileExample::class)->name('profile-example');
-    Route::get('/login-example', LoginExample::class)->name('login-example');
-    Route::get('/register-example', RegisterExample::class)->name('register-example');
-    Route::get('/forgot-password-example', ForgotPasswordExample::class)->name('forgot-password-example');
-    Route::get('/reset-password-example', ResetPasswordExample::class)->name('reset-password-example');
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('/transactions', Transactions::class)->name('transactions');
-    Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
-    Route::get('/lock', Lock::class)->name('lock');
-    Route::get('/buttons', Buttons::class)->name('buttons');
-    Route::get('/notifications', Notifications::class)->name('notifications');
-    Route::get('/forms', Forms::class)->name('forms');
-    Route::get('/modals', Modals::class)->name('modals');
-    Route::get('/typography', Typography::class)->name('typography');
 });
