@@ -63,6 +63,28 @@
         </a>
       </li>
       @auth
+        @if(auth()->user()->role_id === 1 || auth()->user()->role_id === 4)
+      <li class="nav-item {{ Request::segment(1) == 'feed' ? 'active' : '' }}">
+        <a href="/feed" class="nav-link">
+          <span class="sidebar-icon">
+          </span>
+          <span class="sidebar-text">Welcome</span>
+        </a>
+      </li>
+        @endif
+      @endauth
+      @auth
+        @if(auth()->user()->role_id === 1 || auth()->user()->role_id === 3)
+      <li class="nav-item {{ Request::segment(1) == 'driver-home' ? 'active' : '' }}">
+        <a href="/driver-home" class="nav-link">
+          <span class="sidebar-icon">
+          </span>
+          <span class="sidebar-text">Home</span>
+        </a>
+      </li>
+        @endif
+      @endauth
+      @auth
         @if(auth()->user()->role_id === 1)
       <li class="nav-item">
         <span class="nav-link collapsed d-flex justify-content-between align-items-center" data-bs-toggle="collapse"

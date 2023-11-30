@@ -38,6 +38,9 @@ class Login extends Component
             if (auth()->user()->role_id === 4) {
                 return redirect()->intended('/feed'); 
             }
+            if (auth()->user()->role_id === 3) {
+                return redirect()->intended('/driver-home'); 
+            }
             return redirect()->intended('/dashboard');
         } else {
             return $this->addError('email', trans('auth.failed'));
