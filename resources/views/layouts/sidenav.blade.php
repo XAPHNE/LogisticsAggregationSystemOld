@@ -62,6 +62,13 @@
           <span class="sidebar-text">Profile</span>
         </a>
       </li>
+      <li class="nav-item {{ Request::segment(1) == 'feed' ? 'active' : '' }}">
+        <a href="/feed" class="nav-link">
+          <span class="sidebar-icon">
+          </span>
+          <span class="sidebar-text">Welcome</span>
+        </a>
+      </li>
       @auth
         @if(auth()->user()->role_id === 1)
       <li class="nav-item">
