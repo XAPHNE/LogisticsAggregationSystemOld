@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between w-100" id="navbarSupportedContent">
       <div class="d-flex align-items-center">
         <!-- Search form -->
-        <form class="navbar-search form-inline" id="navbar-search-main">
+        <!-- <form class="navbar-search form-inline" id="navbar-search-main">
           <div class="input-group input-group-merge search-bar">
             <span class="input-group-text" id="topbar-addon"><svg class="icon icon-xs"
                 x-description="Heroicon name: solid/search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -15,10 +15,10 @@
             <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search" aria-label="Search"
               aria-describedby="topbar-addon">
           </div>
-        </form>
-        <a href="https://themesberg.com/product/laravel/volt-admin-dashboard-template" target="_blank"><button
+        </form> -->
+        <!-- <a href="https://themesberg.com/product/laravel/volt-admin-dashboard-template" target="_blank"><button
             class="btn mx-1 me-2 btn-secondary" type="button"><i
-              class="fas fa-arrow-down mx-1"></i>Download</button></a>
+              class="fas fa-arrow-down mx-1"></i>Download</button></a> -->
       </div>
       <!-- Navbar links -->
       <ul class="navbar-nav align-items-center">
