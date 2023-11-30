@@ -37,7 +37,7 @@
                                 <td>{{ $order->status }}</td>
                                 <td>
                                     <button wire:click="updateOrderStatus({{ $order->id }})" type="button" class="btn btn-primary"
-                                    @if($order->status === 'Cancelled') disabled @endif>
+                                    @if($order->status === 'Cancelled' || ($acceptedOrder !== null && $acceptedOrder->id !== $order->id)) disabled @endif>
                                     @if($order->status === 'Open')
                                         Accept
                                     @elseif($order->status === 'Accepted')

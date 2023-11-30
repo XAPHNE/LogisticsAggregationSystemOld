@@ -57,8 +57,6 @@
           </span>
         </a>
       </li>
-      @auth
-            @if(auth()->user()->role_id === 1)
       <li class="nav-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
         <a href="/dashboard" class="nav-link">
           <span class="sidebar-icon"> <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -66,11 +64,9 @@
               <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
               <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
             </svg></span></span>
-          <span class="sidebar-text">Dashboard</span>
+          <span class="sidebar-text">Welcome Page</span>
         </a>
       </li>
-        @endif
-      @endauth
       <li class="nav-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
         <a href="/profile" class="nav-link">
           <span class="sidebar-icon">
@@ -80,13 +76,26 @@
         </a>
       </li>
       @auth
-        @if(auth()->user()->role_id === 1 || auth()->user()->role_id === 4)
+        @if(auth()->user()->role_id === 4)
       <li class="nav-item {{ Request::segment(1) == 'feed' ? 'active' : '' }}">
         <a href="/feed" class="nav-link">
           <span class="sidebar-icon">
-          <i class="fas fa-home me-2"></i>
+          <i class="
+            @if(auth()->user()->role_id === 1)
+              fas fa-shopping-cart
+            @elseif(auth()->user()->role_id === 4)
+              fas fa-home
+            @endif
+            me-2
+          "></i>
           </span>
-          <span class="sidebar-text">Customer Home</span>
+          <span class="sidebar-text">
+            @if(auth()->user()->role_id === 1)
+                Orders Booked
+            @elseif(auth()->user()->role_id === 4)
+                Customer Home
+            @endif
+          </span>
         </a>
       </li>
         @endif
@@ -96,9 +105,21 @@
       <li class="nav-item {{ Request::segment(1) == 'driver-home' ? 'active' : '' }}">
         <a href="/driver-home" class="nav-link">
           <span class="sidebar-icon">
-          <i class="fas fa-home me-2"></i>
+          <i class="
+            @if(auth()->user()->role_id === 1)
+              fas fa-money-bill-wave
+            @elseif(auth()->user()->role_id === 3)
+              fas fa-home
+            @endif
+            me-2"></i>
           </span>
-          <span class="sidebar-text">Driver Home</span>
+          <span class="sidebar-text">
+            @if(auth()->user()->role_id === 1)
+              Transactions
+            @elseif(auth()->user()->role_id === 3)
+              Driver Home
+            @endif
+          </span>
         </a>
       </li>
         @endif
@@ -162,8 +183,10 @@
             </li>
           </ul>
         </div>
-      </li>        
-      <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
+      </li>
+        @endif
+      @endauth        
+      <!-- <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
         <a href="/transactions" class="nav-link">
           <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg">
@@ -174,9 +197,7 @@
             </svg></span>
           <span class="sidebar-text">Transactions</span>
         </a>
-      </li>
-        @endif
-      @endauth
+      </li> -->
       <!-- 
       <li class="nav-item">
         <span
