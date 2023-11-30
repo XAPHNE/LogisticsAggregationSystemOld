@@ -2,7 +2,7 @@
     <title>Volt Laravel Dashboard - Profile</title>
     <div>
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-            <div>
+            <!-- <div>
                 <button class="btn btn-secondary me-2 dropdown-toggle" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     <span class="fas fa-plus me-2"></span>New
@@ -46,9 +46,9 @@
                         </svg>
                         My Plan
                     </a>
-                </div>
+                </div> -->
             </div>
-            <div>
+            <!-- <div>
                 <button type="button" class="btn btn-gray-800 d-inline-flex align-items-center me-2">
                     <svg class="icon icon-xs" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd"
@@ -124,7 +124,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-12 col-xl-8">
                 @if($showSavedAlert)
@@ -231,8 +231,8 @@
                                 <h4 class="h3">
                                     {{  auth()->user()->first_name ? auth()->user()->first_name . ' ' . auth()->user()->last_name : 'User Name'}}
                                 </h4>
-                                <h5 class="fw-normal">Senior Software Engineer</h5>
-                                <p class="text-gray mb-4">New York, USA</p>
+                                <h5 class="fw-normal"> {{ auth()->user()->email ? auth()->user()->email : 'Fill Email' }}</h5>
+                                <p class="text-gray mb-4">{{ auth()->user()->address ? auth()->user()->address . ', ' : 'Fill Address' }}</p>
                                 <a class="btn btn-sm btn-gray-800 d-inline-flex align-items-center me-2" href="#">
                                     <svg class="icon icon-xs me-1" fill="currentColor" viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
