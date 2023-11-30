@@ -74,6 +74,11 @@ Route::middleware(['auth', 'check_user_role:4'])->group(function () {
     Route::post('/feed', CustomerLanding::class)->name('customer.landing');
 });
 
+Route::middleware(['auth', 'check_user_role:3'])->group(function () {
+    Route::get('/driver-home', DriverLanding::class)->name('driver.landing');
+    Route::post('/driver-home', DriverLanding::class)->name('driver.landing');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
