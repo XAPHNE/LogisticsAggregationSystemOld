@@ -31,7 +31,24 @@
     </div>
     <ul class="nav flex-column pt-3 pt-md-0">
       <li class="nav-item">
-        <a href="/dashboard" class="nav-link d-flex align-items-center">
+        @php
+          $userRole = auth()->user()->role_id;
+          switch ($userRole) {
+          case 1:
+            $hrefValue = '/dashboard';
+            break;
+          case 3:
+            $hrefValue = '/driver-home';
+            break;
+          case 4:
+            $hrefValue = '/feed';
+            break;
+          default:
+            $hrefValue = '/404'; // URL for other roles
+            break;
+          }
+        @endphp
+        <a href="{{ $hrefValue }}" class="nav-link d-flex align-items-center">
           <span class="sidebar-icon me-3">
             <img src="/assets/img/brand/light.svg" height="20" width="20" alt="Volt Logo">
           </span>
@@ -68,7 +85,7 @@
         <a href="/feed" class="nav-link">
           <span class="sidebar-icon">
           </span>
-          <span class="sidebar-text">Welcome</span>
+          <span class="sidebar-text">Customer Home</span>
         </a>
       </li>
         @endif
@@ -79,7 +96,7 @@
         <a href="/driver-home" class="nav-link">
           <span class="sidebar-icon">
           </span>
-          <span class="sidebar-text">Home</span>
+          <span class="sidebar-text">Driver Home</span>
         </a>
       </li>
         @endif
