@@ -67,15 +67,7 @@ Route::middleware(['auth', 'check_user_role:1'])->group(function () {
     Route::get('/user-management/user-edit/{id}', UserEdit::class)->name('user.edit');
     Route::get('/user-management/user-list', Users::class)->name('users');
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-});
 
-Route::middleware(['auth', 'check_user_role:4'])->group(function () {
-    Route::get('/feed', CustomerLanding::class)->name('customer.landing');
-    Route::post('/feed', CustomerLanding::class)->name('customer.landing');
-});
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', Profile::class)->name('profile');
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
     Route::get('/login-example', LoginExample::class)->name('login-example');
     Route::get('/register-example', RegisterExample::class)->name('register-example');
@@ -89,4 +81,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
+});
+
+Route::middleware(['auth', 'check_user_role:4'])->group(function () {
+    Route::get('/feed', CustomerLanding::class)->name('customer.landing');
+    Route::post('/feed', CustomerLanding::class)->name('customer.landing');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', Profile::class)->name('profile');
 });
