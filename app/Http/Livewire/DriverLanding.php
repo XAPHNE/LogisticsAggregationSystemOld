@@ -19,6 +19,7 @@ class DriverLanding extends Component
     public $loadBy;
     public $price;
     public $status;
+    public $acceptedOrder = null;
     public function render()
     {
         // Fetch orders from the database
@@ -41,7 +42,11 @@ class DriverLanding extends Component
             ->get();
 
         // Pass the orders data to the view
-        return view('livewire.driver-landing', ['orders' => $orders]);
+        return view('livewire.driver-landing', [
+            'orders' => $orders,
+            'acceptedOrder' => $this->acceptedOrder // Include $acceptedOrder here
+        ]);
+        
     }
 
     public function updateOrderStatus($orderId)
@@ -51,8 +56,10 @@ class DriverLanding extends Component
         // Check the current status and update accordingly
         if ($order->status === 'Open') {
             $order->update(['status' => 'Accepted']);
+            $this->acceptedOrder = $order;
         } elseif ($order->status === 'Accepted') {
             $order->update(['status' => 'Cancelled']);
+            $this->acceptedOrder = null;
         }
     }
 }
