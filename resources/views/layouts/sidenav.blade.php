@@ -40,6 +40,8 @@
           </span>
         </a>
       </li>
+      @auth
+            @if(auth()->user()->role_id === 1)
       <li class="nav-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
         <a href="/dashboard" class="nav-link">
           <span class="sidebar-icon"> <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -50,6 +52,8 @@
           <span class="sidebar-text">Dashboard</span>
         </a>
       </li>
+        @endif
+      @endauth
       <li class="nav-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
         <a href="/profile" class="nav-link">
           <span class="sidebar-icon">
@@ -117,9 +121,7 @@
             </li>
           </ul>
         </div>
-      </li>
-        @endif
-      @endauth
+      </li>        
       <li class="nav-item {{ Request::segment(1) == 'transactions' ? 'active' : '' }}">
         <a href="/transactions" class="nav-link">
           <span class="sidebar-icon"><svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -132,6 +134,9 @@
           <span class="sidebar-text">Transactions</span>
         </a>
       </li>
+        @endif
+      @endauth
+      <!-- 
       <li class="nav-item">
         <span
           class="nav-link {{ Request::segment(1) !== 'bootstrap-tables' ? 'collapsed' : '' }} d-flex justify-content-between align-items-center"
@@ -293,7 +298,7 @@
           <span class="sidebar-text">Documentation </span> <span><span
               class="badge badge-sm bg-secondary ms-1">v1.0</span></span>
         </a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>

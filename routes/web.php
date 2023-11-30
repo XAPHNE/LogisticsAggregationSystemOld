@@ -74,11 +74,6 @@ Route::middleware(['auth', 'check_user_role:4'])->group(function () {
     Route::post('/feed', CustomerLanding::class)->name('customer.landing');
 });
 
-Route::middleware(['auth', 'check_user_role:3'])->group(function () {
-    Route::get('/driver-home', DriverLanding::class)->name('driver.landing');
-    Route::post('/driver-home', DriverLanding::class)->name('driver.landing');
-});
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
@@ -86,7 +81,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/register-example', RegisterExample::class)->name('register-example');
     Route::get('/forgot-password-example', ForgotPasswordExample::class)->name('forgot-password-example');
     Route::get('/reset-password-example', ResetPasswordExample::class)->name('reset-password-example');
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/transactions', Transactions::class)->name('transactions');
     Route::get('/bootstrap-tables', BootstrapTables::class)->name('bootstrap-tables');
     Route::get('/lock', Lock::class)->name('lock');
@@ -95,4 +89,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/forms', Forms::class)->name('forms');
     Route::get('/modals', Modals::class)->name('modals');
     Route::get('/typography', Typography::class)->name('typography');
+});
+
+Route::middleware(['auth', 'check_user_role:4'])->group(function () {
+    Route::get('/feed', CustomerLanding::class)->name('customer.landing');
+    Route::post('/feed', CustomerLanding::class)->name('customer.landing');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', Profile::class)->name('profile');
 });
