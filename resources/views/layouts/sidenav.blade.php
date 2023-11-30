@@ -84,6 +84,7 @@
       <li class="nav-item {{ Request::segment(1) == 'feed' ? 'active' : '' }}">
         <a href="/feed" class="nav-link">
           <span class="sidebar-icon">
+          <i class="fas fa-home me-2"></i>
           </span>
           <span class="sidebar-text">Customer Home</span>
         </a>
@@ -95,6 +96,7 @@
       <li class="nav-item {{ Request::segment(1) == 'driver-home' ? 'active' : '' }}">
         <a href="/driver-home" class="nav-link">
           <span class="sidebar-icon">
+          <i class="fas fa-home me-2"></i>
           </span>
           <span class="sidebar-text">Driver Home</span>
         </a>
