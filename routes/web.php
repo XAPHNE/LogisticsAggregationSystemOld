@@ -70,6 +70,7 @@ Route::middleware(['auth', 'check_user_role:1'])->group(function () {
 
 Route::middleware(['auth', 'check_user_role:4'])->group(function () {
     Route::get('/feed', CustomerLanding::class)->name('customer.landing');
+    Route::post('/feed', CustomerLanding::class)->name('customer.landing');
 });
 
 Route::middleware('auth')->group(function () {
