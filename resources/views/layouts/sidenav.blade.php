@@ -40,6 +40,8 @@
           </span>
         </a>
       </li>
+      @auth
+            @if(auth()->user()->role_id === 1)
       <li class="nav-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
         <a href="/dashboard" class="nav-link">
           <span class="sidebar-icon"> <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -50,6 +52,8 @@
           <span class="sidebar-text">Dashboard</span>
         </a>
       </li>
+        @endif
+      @endauth
       <li class="nav-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
         <a href="/profile" class="nav-link">
           <span class="sidebar-icon">
