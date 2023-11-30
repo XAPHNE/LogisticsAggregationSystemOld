@@ -1,4 +1,4 @@
-<div class="theme-settings card bg-gray-800 pt-2 collapse" id="theme-settings">
+<!-- <div class="theme-settings card bg-gray-800 pt-2 collapse" id="theme-settings">
     <div class="card-body bg-gray-800 text-white pt-4">
         <button type="button" class="btn-close theme-settings-close" aria-label="Close" data-bs-toggle="collapse"
             href="#theme-settings" role="button" aria-expanded="false" aria-controls="theme-settings"></button>
@@ -41,7 +41,7 @@
             Settings
         </span>
     </div>
-</div>
+</div> -->
 <footer class="p-5 mb-4">
     <div class="container">
         <div class="col-12 d-flex align-items-center justify-content-center">

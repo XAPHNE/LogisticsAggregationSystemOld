@@ -1,4 +1,4 @@
-<div class="theme-settings card bg-gray-800 pt-2 collapse" id="theme-settings">
+<!-- <div class="theme-settings card bg-gray-800 pt-2 collapse" id="theme-settings">
     <div class="card-body bg-gray-800 text-white pt-4">
         <button type="button" class="btn-close theme-settings-close" aria-label="Close" data-bs-toggle="collapse"
             href="#theme-settings" role="button" aria-expanded="false" aria-controls="theme-settings"></button>
@@ -41,7 +41,7 @@
             Settings
         </span>
     </div>
-</div>
+</div> -->
 <footer class="bg-white rounded shadow p-5 mb-4 mt-4">
     <div class="row">
         <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0">
@@ -54,9 +54,9 @@
                 <li class="list-inline-item px-0 px-sm-2">
                     <a href="#">About</a>
                 </li>
-                <li class="list-inline-item px-0 px-sm-2">
+                <!-- <li class="list-inline-item px-0 px-sm-2">
                     <a href="#">Themes</a>
-                </li>
+                </li> -->
                 <li class="list-inline-item px-0 px-sm-2">
                     <a href="#">Blog</a>
                 </li>
