@@ -70,6 +70,8 @@ Route::middleware(['auth', 'check_user_role:1'])->group(function () {
     Route::get('/user-management/user-edit/{id}', UserEdit::class)->name('user.edit');
     Route::get('/user-management/user-list', Users::class)->name('users');
 
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+
     Route::get('/profile-example', ProfileExample::class)->name('profile-example');
     Route::get('/login-example', LoginExample::class)->name('login-example');
     Route::get('/register-example', RegisterExample::class)->name('register-example');
@@ -97,5 +99,4 @@ Route::middleware(['auth', 'check_user_role:3'])->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', Profile::class)->name('profile');
-    Route::get('/dashboard', Dashboard::class)->name('dashboard');
 });

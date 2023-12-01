@@ -57,6 +57,8 @@
           </span>
         </a>
       </li>
+      @auth
+        @if(auth()->user()->role_id === 1)
       <li class="nav-item {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}">
         <a href="/dashboard" class="nav-link">
           <span class="sidebar-icon"> <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -64,9 +66,11 @@
               <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
               <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
             </svg></span></span>
-          <span class="sidebar-text">Welcome Page</span>
+          <span class="sidebar-text">Dashboard</span>
         </a>
       </li>
+        @endif
+      @endauth
       <li class="nav-item {{ Request::segment(1) == 'profile' ? 'active' : '' }}">
         <a href="/profile" class="nav-link">
           <span class="sidebar-icon">
